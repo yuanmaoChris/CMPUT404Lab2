@@ -1,6 +1,6 @@
 import socket
 from multiprocessing import Pool
-HOST = 'localhost'
+HOST = ''
 PORT = 8001
 BUFFER_SIZE = 1024
 

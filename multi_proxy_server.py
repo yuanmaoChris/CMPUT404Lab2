@@ -25,7 +25,7 @@ def handle_request(conn,addr,proxy_end):
         conn.send(data)
 
 def main():
-    host = 'wwww.google.com'
+    host = 'www.google.com'
     port = 80
     with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as proxy_start:
         print('Starting proxy server')
@@ -39,7 +39,8 @@ def main():
                 print('Connecting to Google')
                 remote_ip = get_remote_ip(host)
                 
-                proxy_end.connect((remote_ip,port))
+                proxy_end.connect((host,port))
+                
                 p = Process(target= handle_request,args=(conn,addr,proxy_end))
                 p.daemon = True
                 p.start()
